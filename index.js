@@ -1,19 +1,19 @@
 const express = require("express");
 const cors = require("cors");
 const app = express();
-const destination = require("./data/destination.json");
+const destinations = require("./data/destinations.json");
 const port = 5000;
 
 app.use(cors());
 
-app.get("/destination", (req, res) => {
-    res.send(destination);
+app.get("/destinations", (req, res) => {
+    res.send(destinations);
 })
 
-app.get("/destination/:id", (req, res) => {
+app.get("/destinations/:id", (req, res) => {
     const id = req.params.id;
-    const specificDestination = destination.find(d => d.id === id);
-    res.send(specificDestination);
+    const destination = destinations.find(d => d.id === id);
+    res.send(destination);
 })
 
 app.get("/", (req, res) => {
