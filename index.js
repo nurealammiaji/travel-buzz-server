@@ -10,9 +10,9 @@ app.get("/destinations", (req, res) => {
     res.send(destinations);
 })
 
-app.get("/destinations/:id", (req, res) => {
-    const id = req.params.id;
-    const destination = destinations.find(d => d.id === id);
+app.get("/destination/:id", (req, res) => {
+    const id = parseInt(req.params.id);
+    const destination = destinations.find(d => parseInt(d.id) === id);
     res.send(destination);
 })
 
